@@ -9,6 +9,6 @@ import { Component } from '@angular/core';
 })
 export class ServerStatusComponent {
 
-  currentStatus = 'online';
+  currentStatus = 'offline';
 
 }
