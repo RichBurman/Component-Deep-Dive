@@ -10,9 +10,7 @@ import { Ticket } from '../ticket.model';
 })
 export class TicketComponent {
   data = input.required<Ticket>();
-
   close = output();
-
   detailsVisible = signal(false);
 
   onToggleDetails() {
