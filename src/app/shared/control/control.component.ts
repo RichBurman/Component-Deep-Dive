@@ -1,4 +1,7 @@
 import {
+  afterNextRender,
+  afterRender,
+  AfterViewInit,
   Component,
   contentChild,
   ContentChild,
@@ -19,7 +22,7 @@ import {
   encapsulation: ViewEncapsulation.None,
   host: { class: 'control', '(click)': 'onClick()' },
 })
-export class ControlComponent {
+export class ControlComponent implements AfterViewInit  {
   // @HostBinding() className = 'control';
 
   // @HostListener()
@@ -28,6 +31,20 @@ export class ControlComponent {
   // @ContentChild('input') private control?: ElementRef<HTMLInputElement | HTMLTextAreaElement>;
 
   private control = contentChild<ElementRef<HTMLInputElement | HTMLTextAreaElement>>('input');
+
+  constructor() {
+    afterRender(() => {
+      console.log('CONTROL AFTER RENDER');
+    });
+
+    afterNextRender(() => {
+      console.log('CONTROL AFTER NEXT RENDER');
+    });
+  }
+
+  ngAfterViewInit(): void {
+    console.log('CONTROL AFTER VIEW INIT');
+  }
   onClick() {
     console.log(`${this.label} control clicked`);
     console.log(this.el)
