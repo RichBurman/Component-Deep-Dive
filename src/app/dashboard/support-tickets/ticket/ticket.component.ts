@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Ticket } from '../ticket.model';
+
 
 @Component({
   selector: 'app-ticket',
